@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import styles from './mainDisplay.module.css'
-import { cars, motorcycles } from '../../data/data'
+import { vehicles } from '../../data/data'
 
 export default function MainDisplay() {
   const [carList, setCarList] = useState()
 
   useEffect(() => {
-    setCarList(cars)
-  }, [cars])
+    setCarList(vehicles)
+  }, [carList, vehicles])
 
 
 
   return (
     <div className={styles.main}>
-      {cars.map((car) => (
-        <>
-          <h1>{car.name}</h1>
-          <img className='carImage' src={car.image} alt="" />
-        </>
+      {vehicles.map((vehicle) => (
+        <div className={styles.vehicleDisplay}>
+          <h1>{vehicle.make} {vehicle.model}</h1>
+          <img className={styles.carImage} src={vehicle.image} alt="" />
+        </div>
       ))}
     </div>
   )
