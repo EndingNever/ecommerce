@@ -1,12 +1,14 @@
 import React from 'react'
 import styles from './Cars.module.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { counterActions } from '../../store/index';
+import { authActions, counterActions } from '../../store/index';
 
 export default function Cars() {
   const dispatch = useDispatch();
-  const counter = useSelector((state) => state.counter);
-  const toggle = useSelector((state) => state.showCounter)
+  const counter = useSelector((state) => state.counter.counter);
+  const toggle = useSelector((state) => state.counter.showCounter);
+
+  const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());
@@ -23,9 +25,20 @@ export default function Cars() {
     dispatch(counterActions.toggleCounter());
   }
 
+  const loginHandler = (event) => {
+    event.preventDefault()
+    dispatch(authActions.login());
+  }
+  const logoutHandler = () => {
+    dispatch(authActions.logout())
+  }
+
   return (
     <>
       <div>CARS go here</div>
+      <button onClick={loginHandler}>Login</button>
+      <button onClick={logoutHandler}>Logout</button>
+      {isAuth && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
       {toggle && <div> {counter} </div>}
       <div>
         <button onClick={incrementHandler}>increment</button>
