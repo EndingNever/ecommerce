@@ -1,7 +1,9 @@
 import React from 'react'
 import styles from './Cars.module.css'
 import { useSelector, useDispatch } from 'react-redux'
-import { authActions, counterActions } from '../../store/index';
+// import { authActions, counterActions } from '../../store/index';
+import { counterActions } from '../../store/counter';
+import { authActions } from '../../store/auth';
 
 export default function Cars() {
   const dispatch = useDispatch();
