@@ -10,6 +10,7 @@ const StickyNav = () => {
           <Link to='/'>Home</Link>
           <Link to='/cars'>Cars</Link>
           <Link to='/motorcycles'>Motorcycles</Link>
+          <Link to='/cart'>Cart</Link>
         </ul>
       </nav>
     </header>

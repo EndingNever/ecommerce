@@ -5,6 +5,7 @@ import klr from '../images/vehicles/klr.jpg'
 
 export const vehicles = [
   {
+    id: 0,
     type: 'car',
     make: 'Audi',
     model: 'Sport Quattro',
@@ -12,6 +13,7 @@ export const vehicles = [
     image: audi,
   },
   {
+    id: 1,
     type: 'car',
     make: 'Toyota',
     model: 'Camry',
@@ -19,6 +21,7 @@ export const vehicles = [
     image: camry,
   },
   {
+    id: 2,
     type: 'motorcycle',
     make: 'BMW',
     model: 'R1200GS',
@@ -26,6 +29,7 @@ export const vehicles = [
     image: bmw,
   },
   {
+    id: 3,
     type: 'motorcycle',
     make: 'Kawasaki',
     model: 'KLR650',
