@@ -5,24 +5,20 @@ import { useSelector, useDispatch } from 'react-redux'
 import { counterActions } from '../../store/counter';
 import { authActions } from '../../store/auth';
 import { vehicles } from '../../data/data';
-import { cartActions } from '../../store/shoppingCart';
+import { cartActions } from '../../store/cart';
 
 export default function Cars() {
-  const addToCart = cartActions.addItem;
-  const printCart = cartActions.printCart;
-  const dispatch = useDispatch();
   const [cars, setCars] = useState([])
+  const dispatch = useDispatch();
+  const addToCart = cartActions.addItem;
 
   const handleAddToCart = (product) => {
-    dispatch(cartActions.addItem(product))
+    dispatch(addToCart(product))
   }
 
   useEffect(() => {
     const carFilter = vehicles.filter(vehicle => vehicle.type === 'car')
     setCars(carFilter);
-    // cartActions.addItem('ringo');
-    dispatch(cartActions.printCart());
-
   }, [])
 
 
@@ -33,6 +29,7 @@ export default function Cars() {
         <div key={car.id}>
           <p>{car.make}</p>
           <p>{car.model}</p>
+          <img src={car.image}></img>
           <button onClick={() => handleAddToCart(car)}>Add Car</button>
         </div>
       ))}</div>

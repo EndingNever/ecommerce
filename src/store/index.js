@@ -2,7 +2,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./counter";
 import authReducer from "./auth"
-import cartReducer from './shoppingCart'
+import cartReducer from './cart'
 
 
 // const counterReducer = (state = initialState, action) => { //*Plain Redux, ReduxToolkit helps make this lean

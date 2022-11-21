@@ -14,7 +14,7 @@ export default function MainDisplay() {
   return (
     <div className={styles.main}>
       {vehicles.map((vehicle) => (
-        <div className={styles.vehicleDisplay}>
+        <div key={vehicle.id} className={styles.vehicleDisplay}>
           <h1>{vehicle.make} {vehicle.model}</h1>
           <img className={styles.carImage} src={vehicle.image} alt="" />
         </div>
