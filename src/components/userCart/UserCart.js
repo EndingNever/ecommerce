@@ -28,10 +28,10 @@ export default function UserCart() {
         <div>
           {cart.numOfItems} items in cart
           {cart.items.map((item) => (
-            <>
+            <div key={item.id}>
               <p>{item.model}</p>
               <img src={item.image}></img>
-            </>
+            </div>
           ))}
         </div>
       }

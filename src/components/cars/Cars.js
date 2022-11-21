@@ -24,15 +24,20 @@ export default function Cars() {
 
   return (
     <>
-      <div>CARS go here</div>
-      <div>{cars.map((car) => (
-        <div key={car.id}>
-          <p>{car.make}</p>
-          <p>{car.model}</p>
-          <img src={car.image}></img>
-          <button onClick={() => handleAddToCart(car)}>Add Car</button>
-        </div>
-      ))}</div>
+      <div className={styles.allCars}>
+        {cars.map((car) => (
+          <div className={styles.carCard} key={car.id}>
+            <div className={styles.carInfo}>
+              <p>{car.make}</p>
+              <p>{car.model}</p>
+            </div>
+            <div className={styles.imageContainer}>
+              <img src={car.image}></img>
+            </div>
+            <button onClick={() => handleAddToCart(car)}>Add Car</button>
+          </div>
+        ))}
+      </div>
       {/* <button onClick={loginHandler}>Login</button>
       <button onClick={logoutHandler}>Logout</button>
       {isAuth && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}

@@ -1,0 +1,8 @@
+.card{
+  outline: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+}

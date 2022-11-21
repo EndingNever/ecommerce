@@ -1,0 +1,27 @@
+.allCars{
+  outline: 2px solid red;
+  height: 100vh;
+  display: flex;
+  /* align-items: flex-start; */
+  justify-content: space-around;
+}
+
+.carCard{
+  /* outline: 2px solid green; */
+  width: 40vw;
+  height: 30vh;
+  position: relative;
+  /* object-fit: contain; */
+}
+
+.carInfo {
+  outline: 2px solid pink;
+  max-width: 100%;
+  height: auto;
+}
+
+.imageContainer img{
+  outline: 2px solid red;
+  max-width: 100%;
+  height: auto;
+}
