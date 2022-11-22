@@ -2,6 +2,8 @@ import camry from '../images/vehicles/camry.jpg'
 import audi from '../images/vehicles/quattro.jpg'
 import bmw from '../images/vehicles/bmw.png'
 import klr from '../images/vehicles/klr.jpg'
+import nsx from '../images/vehicles/acuraNSX.jpg'
+import t100 from '../images/vehicles/t100.jpg'
 
 export const vehicles = [
   {
@@ -36,4 +38,20 @@ export const vehicles = [
     price: 10000,
     image: klr,
   },
+  {
+    id: 4,
+    type: 'car',
+    make: 'Acura',
+    model: 'NSX',
+    price: 120000,
+    image: nsx,
+  },
+  {
+    id: 5,
+    type: 'motorcycle',
+    make: 'Triumph',
+    model: 'Bonneville',
+    price: 10000,
+    image: t100,
+  }
 ];

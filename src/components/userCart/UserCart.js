@@ -31,6 +31,7 @@ export default function UserCart() {
             <div key={item.id}>
               <p>{item.model}</p>
               <img src={item.image}></img>
+              <p>Quantity: {item.cartQuantity}</p>
             </div>
           ))}
         </div>

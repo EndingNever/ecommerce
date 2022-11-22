@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styles from './Motorcycles.module.css'
 import { vehicles } from '../../data/data'
 import { useDispatch } from 'react-redux'
 import { cartActions } from '../../store/cart'
@@ -17,16 +18,19 @@ export default function Motorcycles() {
     setMotorcycles(motorcycleFilter);
   }, [])
   return (
-    <>
-      <div>MOTORCYCLES go here</div>
-      <div>{motorcycles.map((motorcycle) => (
-        <div key={motorcycle.id}>
-          <p>{motorcycle.make}</p>
-          <p>{motorcycle.model}</p>
-          <img src={motorcycle.image} alt="" />
+    <div className={styles.allMotorcycles}>
+      {motorcycles.map((motorcycle) => (
+        <div className={styles.motorcycleCard} key={motorcycle.id}>
+          <div className={styles.motorcycleInfo}>
+            <p>{motorcycle.make}</p>
+            <p>{motorcycle.model}</p>
+          </div>
+          <div className={styles.imageContainer}>
+            <img src={motorcycle.image} alt="" />
+          </div>
           <button onClick={() => handleAddToCart(motorcycle)}>Add Motorcycle</button>
         </div>
-      ))}</div>
-    </>
+      ))}
+    </div>
   )
 }
