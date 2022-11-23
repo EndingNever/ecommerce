@@ -8,14 +8,18 @@ import UserCart from './components/userCart/UserCart';
 
 function App() {
   return (
-    <div >
-      <StickyNav />
-      <Routes>
-        <Route path="/" element={<MainDisplay />} />
-        <Route path='/cars' element={<Cars />} />
-        <Route path='/motorcycles' element={<Motorcycles />} />
-        <Route path='/cart' element={<UserCart />} />
-      </Routes>
+    <div className='app'>
+      <div className='appNav'>
+        <StickyNav />
+      </div>
+      <div className='appDisplay'>
+        <Routes >
+          <Route path="/" element={<MainDisplay />} />
+          <Route path='/cars' element={<Cars />} />
+          <Route path='/motorcycles' element={<Motorcycles />} />
+          <Route path='/cart' element={<UserCart />} />
+        </Routes>
+      </div>
     </div>
   );
 }

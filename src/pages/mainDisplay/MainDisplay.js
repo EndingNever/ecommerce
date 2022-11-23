@@ -10,18 +10,11 @@ export default function MainDisplay() {
     setCarList(vehicles)
   }, [carList, vehicles])
 
-
-
   return (
     <div className={styles.main}>
-      <Card>
-        {vehicles.map((vehicle) => (
-          <div key={vehicle.id} className={styles.vehicleDisplay}>
-            <h1>{vehicle.make} {vehicle.model}</h1>
-            <img className={styles.carImage} src={vehicle.image} alt="" />
-          </div>
-        ))}
-      </Card>
+      {vehicles.map((vehicle) => (
+        <Card vehicle={vehicle} id={vehicle.id} make={vehicle.make} model={vehicle.model} image={vehicle.image} />
+      ))}
     </div>
   )
 }

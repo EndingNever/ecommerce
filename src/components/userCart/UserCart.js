@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Card from '../card/Card';
 
 export default function UserCart() {
   const dispatch = useDispatch();
@@ -28,11 +29,15 @@ export default function UserCart() {
         <div>
           {cart.numOfItems} items in cart
           {cart.items.map((item) => (
-            <div key={item.id}>
-              <p>{item.model}</p>
-              <img src={item.image}></img>
-              <p>Quantity: {item.cartQuantity}</p>
-            </div>
+            <>
+              <Card vehicle={item} />
+              <p>Quantity:{item.cartQuantity}</p>
+            </>
+            // <div key={item.id}>
+            //   <p>{item.model}</p>
+            //   <img src={item.image}></img>
+            //   <p>Quantity: {item.cartQuantity}</p>
+            // </div>
           ))}
         </div>
       }

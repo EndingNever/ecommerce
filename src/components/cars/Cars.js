@@ -1,11 +1,10 @@
 // import { authActions, counterActions } from '../../store/index';
 import { useState, useEffect } from 'react'
 import styles from './Cars.module.css'
-import { useSelector, useDispatch } from 'react-redux'
-import { counterActions } from '../../store/counter';
-import { authActions } from '../../store/auth';
+import { useDispatch } from 'react-redux'
 import { vehicles } from '../../data/data';
 import { cartActions } from '../../store/cart';
+import Card from '../card/Card';
 
 export default function Cars() {
   const [cars, setCars] = useState([])
@@ -23,36 +22,30 @@ export default function Cars() {
 
 
   return (
-    <>
-      <div className={styles.allCars}>
+      <div className={styles.main}>
         {cars.map((car) => (
-          <div className={styles.carCard} key={car.id}>
-            <div className={styles.carInfo}>
-              <p>{car.make}</p>
-              <p>{car.model}</p>
-            </div>
-            <div className={styles.imageContainer}>
-              <img src={car.image}></img>
-            </div>
-            <button onClick={() => handleAddToCart(car)}>Add Car</button>
-          </div>
+          <Card vehicle={car} />
+          // <div className={styles.carCard} key={car.id}>
+          //   <div className={styles.carInfo}>
+          //     <p>{car.make}</p>
+          //     <p>{car.model}</p>
+          //   </div>
+          //   <div className={styles.imageContainer}>
+          //     <img src={car.image}></img>
+          //   </div>
+          //   <button onClick={() => handleAddToCart(car)}>Add Car</button>
+          // </div>
         ))}
       </div>
-      {/* <button onClick={loginHandler}>Login</button>
+  )
+}
+// !Login
+    {/* <button onClick={loginHandler}>Login</button>
       <button onClick={logoutHandler}>Logout</button>
       {isAuth && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
       {toggle && <div> {counter} </div>}
-      <div>
-        <button onClick={incrementHandler}>increment</button>
-        <button onClick={increaseHandler}>Increase by 10</button>
-        <button onClick={decrementHandler}>decrement</button>
-        <button onClick={toggleCounterHandler}>Toggle Counter</button>
-      </div> */}
-    </>
-  )
-}
-
-
+    */}
+//! Login
 
   // const counter = useSelector((state) => state.counter.counter);
   // const toggle = useSelector((state) => state.counter.showCounter);

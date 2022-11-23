@@ -1,4 +1,25 @@
+/* TODO Make the boxes of each vehicle the same size */
 * {
   margin: 0px;
   padding: 0px;
+}
+
+.app{
+  /* background-color: palevioletred; */
+  height: 100vh;
+}
+
+.appNav {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.appDisplay {
+  /* background-color: blue; */
+  height: 100%;
 }

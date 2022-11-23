@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const StickyNav = () => {
   return (
-    <header>
+    <header className={styles.headerNav}>
       <nav className={styles.nav}>
         <ul>
           <Link to='/'>Home</Link>

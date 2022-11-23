@@ -4,6 +4,8 @@ import bmw from '../images/vehicles/bmw.png'
 import klr from '../images/vehicles/klr.jpg'
 import nsx from '../images/vehicles/acuraNSX.jpg'
 import t100 from '../images/vehicles/t100.jpg'
+import kaneda from '../images/vehicles/kaneda.jpg'
+import catbus from '../images/vehicles/catbus.jpg'
 
 export const vehicles = [
   {
@@ -53,5 +55,21 @@ export const vehicles = [
     model: 'Bonneville',
     price: 10000,
     image: t100,
+  },
+  {
+    id: 6,
+    type: 'motorcycle',
+    make: "Kaneda's",
+    model: "Motorcycle",
+    price: 60000,
+    image: kaneda,
+  },
+  {
+    id: 7,
+    type: 'car',
+    make: "Studio Ghibli",
+    model: "CatBus",
+    price: 75000,
+    image: catbus,
   }
 ];

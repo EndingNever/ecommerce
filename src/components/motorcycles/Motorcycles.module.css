@@ -1,6 +1,16 @@
+.main {
+  /* outline: 2px solid orange; */
+  height: auto;
+  /* padding: 20px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
 .allMotorcycles {
   margin-top: 20px;
-  outline: 2px solid red;
+  /* outline: 2px solid red; */
   height: 100vh;
   display: flex;
   /* align-items: flex-start; */
