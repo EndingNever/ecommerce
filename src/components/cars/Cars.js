@@ -25,31 +25,17 @@ export default function Cars() {
       <div className={styles.main}>
         {cars.map((car) => (
           <Card vehicle={car} />
-          // <div className={styles.carCard} key={car.id}>
-          //   <div className={styles.carInfo}>
-          //     <p>{car.make}</p>
-          //     <p>{car.model}</p>
-          //   </div>
-          //   <div className={styles.imageContainer}>
-          //     <img src={car.image}></img>
-          //   </div>
-          //   <button onClick={() => handleAddToCart(car)}>Add Car</button>
-          // </div>
         ))}
       </div>
   )
 }
 // !Login
-    {/* <button onClick={loginHandler}>Login</button>
-      <button onClick={logoutHandler}>Logout</button>
-      {isAuth && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
-      {toggle && <div> {counter} </div>}
-    */}
+
 //! Login
 
   // const counter = useSelector((state) => state.counter.counter);
   // const toggle = useSelector((state) => state.counter.showCounter);
-  // const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
   // const incrementHandler = () => {
   //   dispatch(counterActions.increment());
   // }

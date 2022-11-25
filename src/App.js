@@ -5,6 +5,7 @@ import Motorcycles from './components/motorcycles/Motorcycles';
 import StickyNav from './components/stickyNav/StickyNav';
 import MainDisplay from './pages/mainDisplay/MainDisplay';
 import UserCart from './components/userCart/UserCart';
+import LoginAuth from './components/loginAuth/LoginAuth';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/cars' element={<Cars />} />
           <Route path='/motorcycles' element={<Motorcycles />} />
           <Route path='/cart' element={<UserCart />} />
+          <Route path='/login' element={<LoginAuth />} />
         </Routes>
       </div>
     </div>
