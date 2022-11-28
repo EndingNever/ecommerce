@@ -6,8 +6,11 @@ import StickyNav from './components/stickyNav/StickyNav';
 import MainDisplay from './pages/mainDisplay/MainDisplay';
 import UserCart from './components/userCart/UserCart';
 import LoginAuth from './components/loginAuth/LoginAuth';
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isAuth = useSelector((state) => state.auth.isAuthenticated)
+
   return (
     <div className='app'>
       <div className='appNav'>
@@ -19,7 +22,7 @@ function App() {
           <Route path='/cars' element={<Cars />} />
           <Route path='/motorcycles' element={<Motorcycles />} />
           <Route path='/cart' element={<UserCart />} />
-          <Route path='/login' element={<LoginAuth />} />
+          <Route path='/login' element={  <LoginAuth />} />
         </Routes>
       </div>
     </div>
