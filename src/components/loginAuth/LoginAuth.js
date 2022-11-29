@@ -20,6 +20,7 @@ export default function LoginAuth() {
 
   //! Redux Login
   const stateUser = useSelector((state) => state.auth.user)
+  const stateToken = useSelector((state) => state.auth.token)
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const setStateUserToken = authActions.setUserToken;
   const login = authActions.login;
@@ -29,7 +30,10 @@ export default function LoginAuth() {
   const firebaseRegister = async () => {
     try {
       const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPassword);
-      console.log(user);
+      const token = user._tokenResponse.localId
+      dispatch(setStateUserToken(token));
+      dispatch(login());
+      navigate('/',{ replace: true })
     } catch (error) {
       console.log(error.message);
     }
@@ -40,8 +44,8 @@ export default function LoginAuth() {
       const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
       const token = user._tokenResponse.localId
       dispatch(setStateUserToken(token));
-      console.log(token)
-      navigate("/")
+      // dispatch(login());
+      navigate("/", { replace: true })
     } catch (error) {
       console.log(error.message);
     }
@@ -50,25 +54,18 @@ export default function LoginAuth() {
   const firebaseLogout = async () => {
     await signOut(auth);
     dispatch(logout());
+    navigate('/', { replace: true })
   };
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser)
     })
-
-    // if (user === null) {
-    //   dispatch(logout());
-    // } else if (user !== null) {
-    //   dispatch(login());
-    // }
-    // console.log(isAuth);
   }, [user]);
-
 
   return (
     <div className={styles.loginPage}>
-      {!stateUser?.token &&
+      {isAuth == false &&
         <>
           <div>
             <h3>Register User</h3>
@@ -94,11 +91,9 @@ export default function LoginAuth() {
               onChange={(event) => setLoginPassword(event.target.value)}
             />
             <button onClick={firebaseLogin}>Login</button>
-            {/* <button onClick={loginHandler}>Login</button>
-        <button onClick={logoutHandler}>Logout</button> */}
           </div>
         </>}
-      {stateUser.token &&
+      {isAuth == true &&
         <>
           <h4>User Logged In: {user?.email}</h4>
           <button onClick={firebaseLogout}>Sign Out</button>

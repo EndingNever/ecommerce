@@ -13,7 +13,6 @@ function App() {
   const isAuth = useSelector((state) => state.auth.isAuthenticated)
   const userToken = useSelector((state) => state.auth.user.token)
 
-  console.log(userToken);
 
   return (
     <div className='app'>
