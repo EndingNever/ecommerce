@@ -27,7 +27,7 @@
   max-height: 100%;
 }
 
-a{
+.cardContainer a{
   color: inherit;
   text-decoration: none;
 }

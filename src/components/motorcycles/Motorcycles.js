@@ -9,6 +9,7 @@ export default function Motorcycles() {
   const [motorcycles, setMotorcycles] = useState([])
   const dispatch = useDispatch();
   const addToCart = cartActions.addItem;
+  const motorcycleFilter = vehicles.filter((vehicle) => vehicle.type === 'motorcycle')
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product))
@@ -20,8 +21,8 @@ export default function Motorcycles() {
   }, [])
   return (
     <div className={styles.main}>
-      {motorcycles.map((motorcycle) => (
-        <Card vehicle={motorcycle} />
+      {motorcycleFilter.map((motorcycle) => (
+        <Card key={motorcycle.id} vehicle={motorcycle} />
       ))}
     </div>
     // <div className={styles.allMotorcycles}>

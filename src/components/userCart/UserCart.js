@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../card/Card';
 
 export default function UserCart() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [cart, setCart] = useState({ items: [], numOfItems: 0, total: 0 });
-  const cartItems = useSelector((state) => state.cart.cartItems); // Array of items in the cart
-  const itemCount = useSelector((state) => state.cart.itemCount); // # of Items in the cart
-  const cartTotal = useSelector((state) => state.cart.total); // Total in $ 
+  const cartItems = useSelector((state) => state.auth.user.cartItems); // Array of items in the User Object Cart
+  const itemCount = useSelector((state) => state.auth.user.itemCount); // # of Items in the User Object cart
+  const cartTotal = useSelector((state) => state.auth.user.total); // $$$ Total 
 
   useEffect(() => {
     setCart({
@@ -29,15 +29,10 @@ export default function UserCart() {
         <div>
           {cart.numOfItems} items in cart
           {cart.items.map((item) => (
-            <>
+            <Fragment key={item.id}>
               <Card vehicle={item} />
               <p>Quantity:{item.cartQuantity}</p>
-            </>
-            // <div key={item.id}>
-            //   <p>{item.model}</p>
-            //   <img src={item.image}></img>
-            //   <p>Quantity: {item.cartQuantity}</p>
-            // </div>
+            </Fragment>
           ))}
         </div>
       }

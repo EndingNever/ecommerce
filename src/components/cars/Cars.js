@@ -7,26 +7,27 @@ import { cartActions } from '../../store/cart';
 import Card from '../card/Card';
 
 export default function Cars() {
-  const [cars, setCars] = useState([])
   const dispatch = useDispatch();
+  const [cars, setCars] = useState([])
   const addToCart = cartActions.addItem;
+  const carFilter = vehicles.filter(vehicle => vehicle.type === 'car')
 
   const handleAddToCart = (product) => {
     dispatch(addToCart(product))
   }
 
   useEffect(() => {
-    const carFilter = vehicles.filter(vehicle => vehicle.type === 'car')
-    setCars(carFilter);
+    // const carFilter = vehicles.filter(vehicle => vehicle.type === 'car')
+    // setCars(carFilter);
   }, [])
 
 
   return (
-      <div className={styles.main}>
-        {cars.map((car) => (
-          <Card vehicle={car} />
-        ))}
-      </div>
+    <div className={styles.main}>
+      {carFilter.map((car) => (
+        <Card key={car.id} vehicle={car} />
+      ))}
+    </div>
   )
 }
 // !Login

@@ -8,12 +8,12 @@ export default function MainDisplay() {
 
   useEffect(() => {
     setCarList(vehicles)
-  }, [carList, vehicles])
+  }, [])
 
   return (
     <div className={styles.main}>
       {vehicles.map((vehicle) => (
-        <Card vehicle={vehicle} id={vehicle.id} make={vehicle.make} model={vehicle.model} image={vehicle.image} />
+        <Card key={vehicle.id} vehicle={vehicle} id={vehicle.id} make={vehicle.make} model={vehicle.model} image={vehicle.image} />
       ))}
     </div>
   )
