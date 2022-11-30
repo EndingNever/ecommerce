@@ -1,11 +1,13 @@
 import React from 'react'
 import styles from './card.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { cartActions } from '../../store/cart'
+import { Link } from 'react-router-dom';
 
 export default function Card(props) {
-  const vehicle = props.vehicle;
   const dispatch = useDispatch();
+  const auth = useSelector((state) => state.auth.isAuthenticated)
+  const vehicle = props.vehicle;
   const addToCart = cartActions.addItem;
   const handleAddToCart = (product) => {
     dispatch(addToCart(product))
@@ -20,7 +22,9 @@ export default function Card(props) {
           <img className={styles.carImage} src={vehicle.image} alt="" />
         </div>
       </div>
-      <button onClick={() => handleAddToCart(vehicle)}>Add To Cart </button>
+      {!auth && <button><Link to='/login'>Add To Cart</Link> </button>}
+      {auth && <button onClick={() => handleAddToCart(vehicle)}>Add To Cart </button>}
+
     </div>
   )
 }
