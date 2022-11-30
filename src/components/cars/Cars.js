@@ -16,12 +16,6 @@ export default function Cars() {
     dispatch(addToCart(product))
   }
 
-  useEffect(() => {
-    // const carFilter = vehicles.filter(vehicle => vehicle.type === 'car')
-    // setCars(carFilter);
-  }, [])
-
-
   return (
     <div className={styles.main}>
       {carFilter.map((car) => (
@@ -30,29 +24,3 @@ export default function Cars() {
     </div>
   )
 }
-// !Login
-
-//! Login
-
-  // const counter = useSelector((state) => state.counter.counter);
-  // const toggle = useSelector((state) => state.counter.showCounter);
-
-  // const incrementHandler = () => {
-  //   dispatch(counterActions.increment());
-  // }
-  // const decrementHandler = () => {
-  //   dispatch(counterActions.decrement());
-  // }
-  // const increaseHandler = () => {
-  //   dispatch(counterActions.increase(10)); // { type: SOME_UNIQUE_IDENTIFIER, payload: 10} behind the scenes
-  // }
-  // const toggleCounterHandler = () => {
-  //   dispatch(counterActions.toggleCounter());
-  // }
-  // const loginHandler = (event) => {
-  //   event.preventDefault()
-  //   dispatch(authActions.login());
-  // }
-  // const logoutHandler = () => {
-  //   dispatch(authActions.logout())
-  // }

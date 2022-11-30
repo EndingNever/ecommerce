@@ -25,19 +25,5 @@ export default function Motorcycles() {
         <Card key={motorcycle.id} vehicle={motorcycle} />
       ))}
     </div>
-    // <div className={styles.allMotorcycles}>
-    //   {motorcycles.map((motorcycle) => (
-    //     <div className={styles.motorcycleCard} key={motorcycle.id}>
-    //       <div className={styles.motorcycleInfo}>
-    //         <p>{motorcycle.make}</p>
-    //         <p>{motorcycle.model}</p>
-    //       </div>
-    //       <div className={styles.imageContainer}>
-    //         <img src={motorcycle.image} alt="" />
-    //       </div>
-    //       <button onClick={() => handleAddToCart(motorcycle)}>Add Motorcycle</button>
-    //     </div>
-    //   ))}
-    // </div>
   )
 }

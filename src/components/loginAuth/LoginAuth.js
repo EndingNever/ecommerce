@@ -20,7 +20,7 @@ export default function LoginAuth() {
 
   //! Redux Login
   const stateUser = useSelector((state) => state.auth.user)
-  const stateToken = useSelector((state) => state.auth.token)
+  const stateToken = useSelector((state) => state.auth.user.token)
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const setStateUserToken = authActions.setUserToken;
   const login = authActions.login;
@@ -98,7 +98,7 @@ export default function LoginAuth() {
           <h4>User Logged In: {user?.email}</h4>
           <button onClick={firebaseLogout}>Sign Out</button>
           {isAuth === true && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
-          {'Token: ' + stateUser?.token}
+          {'Token: ' + stateToken}
         </>
       }
     </div>

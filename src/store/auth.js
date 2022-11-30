@@ -10,7 +10,7 @@ const initialAuthState = {
     total: 0,
     itemCount: 0,
   },
-  isAuthenticated: !!initialToken,
+  isAuthenticated: initialToken !== null,
 }
 
 
@@ -34,8 +34,9 @@ const authSlice = createSlice({
     },
     logout(state) {
       localStorage.removeItem('token');
-      state.token = null;
+      localStorage.removeItem('cartItems')
       state.isAuthenticated = false;
+      state.user.cartItems = [];
     },
     //*Authorization
 
@@ -45,9 +46,11 @@ const authSlice = createSlice({
         const itemIndex = state.user.cartItems.findIndex((item) => item.id === action.payload.id);
         if (itemIndex >= 0) {
           state.user.cartItems[itemIndex].cartQuantity += 1;
+          localStorage.setItem('cartItems', JSON.stringify(state.user.cartItems))
         } else {
           const tempProduct = { ...action.payload, cartQuantity: 1 };
           state.user.cartItems.push(tempProduct);
+          localStorage.setItem('cartItems', JSON.stringify(state.user.cartItems));
         }
         state.user.itemCount++;
         state.user.total += action.payload.price
