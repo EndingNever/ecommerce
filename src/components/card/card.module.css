@@ -1,13 +1,3 @@
-/*! REMOVE .card{
-  background-color: white;
-  outline: 2px solid red;
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  justify-content: space-around;
-  align-items: center;
-} Remove*/
-
 .cardContainer {
   /* outline: 2px solid red; */
   width: 30vw;
