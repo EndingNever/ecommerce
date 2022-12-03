@@ -1,12 +1,12 @@
 // import { createStore,} from "redux"; Ditching Redux
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./auth"
-import cartReducer from './cart'
+// import cartReducer from './cart'
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
-    cart: cartReducer,
+    // cart: cartReducer,
   }
 });
 

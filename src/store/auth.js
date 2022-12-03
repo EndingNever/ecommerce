@@ -41,6 +41,9 @@ const authSlice = createSlice({
     //*Authorization
 
     //* Cart
+    getCart(state) {
+      state.user.cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    },
     addItem(state, action) {
       if (state.isAuthenticated) {
         const itemIndex = state.user.cartItems.findIndex((item) => item.id === action.payload.id);
