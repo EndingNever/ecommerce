@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialToken = localStorage.getItem('token');
+const initialToken = localStorage.getItem('token'); // Checks if there is already a 'token' value in localStorage
 
 const initialAuthState = {
   user: {
@@ -10,13 +10,12 @@ const initialAuthState = {
     total: 0,
     itemCount: 0,
   },
-  isAuthenticated: initialToken !== null,
+  isAuthenticated: initialToken !== null, // isAuthenticatd = true if localStorage shows a token
 }
 
-
 const authSlice = createSlice({
-  name: 'authentication',
-  initialState: initialAuthState,
+  name: 'authentication', // named Authentication, but contains everything about the user object as well as Auth
+  initialState: initialAuthState, 
   reducers: {
     //*Authorization
     setUserToken(state, action) {
@@ -33,14 +32,24 @@ const authSlice = createSlice({
       // localStorage.setItem('token', state.user.token)
     },
     logout(state) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('cartItems')
+      // localStorage.setItem('cartTotal', 0)
+      // localStorage.removeItem('token');
+      // localStorage.removeItem('cartItems')
+      // localStorage.removeItem('cartTotal')
+      localStorage.clear();
       state.isAuthenticated = false;
       state.user.cartItems = [];
+      state.user.total = 0;
     },
     //*Authorization
 
     //* Cart
+    getTotal(state) {
+      state.user.total = JSON.parse(localStorage.getItem('cartTotal')); //localStorage only stores Strings, parseInt() converts to Int
+    },
+    getItemCount(state){
+      state.user.itemCount = JSON.parse(localStorage.getItem('itemCount'));
+    },
     getCart(state) {
       state.user.cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
     },
@@ -56,7 +65,9 @@ const authSlice = createSlice({
           localStorage.setItem('cartItems', JSON.stringify(state.user.cartItems));
         }
         state.user.itemCount++;
-        state.user.total += action.payload.price
+        state.user.total += action.payload.price;
+        localStorage.setItem('cartTotal', state.user.total)
+        localStorage.setItem('itemCount', state.user.itemCount)
       }
     },
   }

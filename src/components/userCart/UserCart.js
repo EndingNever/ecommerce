@@ -5,21 +5,27 @@ import Card from '../card/Card';
 
 
 //! Note: How to view size of localStorage: var _lsTotal=0,_xLen,_x;for(_x in localStorage){ if(!localStorage.hasOwnProperty(_x)){continue;} _xLen= ((localStorage[_x].length + _x.length)* 2);_lsTotal+=_xLen; console.log(_x.substr(0,50)+" = "+ (_xLen/1024).toFixed(2)+" KB")};console.log("Total = " + (_lsTotal / 1024).toFixed(2) + " KB");
+//TODO get item quantity totals to persist
+//TODO Checkout screen
+//TODO Favorites list
+//TODO Remove item from cart
 
 export default function UserCart() {
   const dispatch = useDispatch();
-  const [cart, setCart] = useState({});
+  // const [cart, setCart] = useState({});
   const getCart = authActions.getCart;
+  const getTotal = authActions.getTotal;
+  const getItemCount = authActions.getItemCount;
   const cartItems = useSelector((state) => state.auth.user.cartItems); // Array of items in the User Object Cart
   const itemCount = useSelector((state) => state.auth.user.itemCount); // # of Items in the User Object cart
   const cartTotal = useSelector((state) => state.auth.user.total); // $$$ Total 
-  const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
+  // const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
 
   useEffect(() => {
     dispatch(getCart());
+    dispatch(getTotal());
+    dispatch(getItemCount());
   }, [])
-
-  console.log(cartItems)
   
   // useEffect(() => {
   //   setCart({
@@ -28,7 +34,7 @@ export default function UserCart() {
   //     total: cartTotal
   //   })
   // }, [cartItems, itemCount, cartTotal])
-
+  
   return (
     <div>
       User Cart
@@ -46,11 +52,11 @@ export default function UserCart() {
               <p>Quantity:{item.cartQuantity}</p>
             </Fragment>
           ))}
+      <p>
+        Your total is ${cartTotal?.toLocaleString()}
+      </p>
         </div>
       }
-      <p>
-        Your total is ${cartTotal}
-      </p>
     </div>
   )
 }

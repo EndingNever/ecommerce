@@ -17,9 +17,9 @@ function App() {
   const userToken = useSelector((state) => state.auth.user.token)
   const login = authActions.login
 
-  useEffect(() => {
-    dispatch(login());
-  }, [])
+  // useEffect(() => {
+  //    dispatch(login());
+  // }, [])
   
   return (
     <div className='app'>

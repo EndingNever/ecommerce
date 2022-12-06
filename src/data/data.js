@@ -1,4 +1,4 @@
-import camry from '../images/vehicles/camry.jpg'
+import camry from '../images/vehicles/camrytrd.webp'
 import audi from '../images/vehicles/quattro.jpg'
 import bmw from '../images/vehicles/bmw.png'
 import klr from '../images/vehicles/klr.jpg'
@@ -15,14 +15,16 @@ export const vehicles = [
     model: 'Sport Quattro',
     price: 20000,
     image: audi,
+    color: 'red',
   },
   {
     id: 1,
     type: 'car',
     make: 'Toyota',
     model: 'Camry',
-    price: 40000,
+    price: 30000,
     image: camry,
+    color: 'red',
   },
   {
     id: 2,
@@ -31,6 +33,7 @@ export const vehicles = [
     model: 'R1200GS',
     price: 10000,
     image: bmw,
+    color: 'blue',
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ export const vehicles = [
     model: 'KLR650',
     price: 10000,
     image: klr,
+    color: 'black',
   },
   {
     id: 4,
@@ -47,6 +51,7 @@ export const vehicles = [
     model: 'NSX',
     price: 120000,
     image: nsx,
+    color: 'black',
   },
   {
     id: 5,
@@ -55,6 +60,7 @@ export const vehicles = [
     model: 'Bonneville',
     price: 10000,
     image: t100,
+    color: 'brown',
   },
   {
     id: 6,
@@ -63,6 +69,7 @@ export const vehicles = [
     model: "Motorcycle",
     price: 60000,
     image: kaneda,
+    color: 'red',
   },
   {
     id: 7,
@@ -71,5 +78,6 @@ export const vehicles = [
     model: "CatBus",
     price: 75000,
     image: catbus,
+    color: 'CATBUS',
   }
 ];
