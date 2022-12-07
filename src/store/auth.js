@@ -39,6 +39,7 @@ const authSlice = createSlice({
       localStorage.clear();
       state.isAuthenticated = false;
       state.user.cartItems = [];
+      state.user.itemCount = 0;
       state.user.total = 0;
     },
     //*Authorization

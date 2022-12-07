@@ -1,7 +1,6 @@
 import React from 'react'
 import styles from './card.module.css'
 import { useDispatch, useSelector } from 'react-redux'
-import { cartActions } from '../../store/cart'
 import { Link } from 'react-router-dom';
 import { authActions } from '../../store/auth';
 

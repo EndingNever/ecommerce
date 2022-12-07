@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './mainDisplay.module.css'
 import { vehicles } from '../../data/data'
 import Card from '../../components/card/Card'
 
 export default function MainDisplay() {
-  const [carList, setCarList] = useState()
+  // const [carList, setCarList] = useState()
 
-  useEffect(() => {
-    setCarList(vehicles)
-  }, [])
+  // useEffect(() => {
+  //   setCarList(vehicles)
+  // }, [])
 
   return (
     <div className={styles.main}>

@@ -1,21 +1,21 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import './App.css';
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Cars from './components/cars/Cars';
 import Motorcycles from './components/motorcycles/Motorcycles';
 import StickyNav from './components/stickyNav/StickyNav';
 import MainDisplay from './pages/mainDisplay/MainDisplay';
 import UserCart from './components/userCart/UserCart';
 import LoginAuth from './components/loginAuth/LoginAuth';
-import { useSelector, useDispatch } from 'react-redux';
-import { authActions } from './store/auth';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { authActions } from './store/auth';
 
 function App() {
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const isAuth = useSelector((state) => state.auth.isAuthenticated)
-  const userToken = useSelector((state) => state.auth.user.token)
-  const login = authActions.login
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
+  // const isAuth = useSelector((state) => state.auth.isAuthenticated)
+  // const userToken = useSelector((state) => state.auth.user.token)
+  // const login = authActions.login
 
   // useEffect(() => {
   //    dispatch(login());

@@ -8,19 +8,37 @@
 }
 .cartItemsContainer {
   border: 2px solid red;
-  width: 75vw;
+  height: 80%;
+  width: 75%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   justify-content: center;
-  /* height: 100%; */
+  height: 80vh;
+}
+
+.cartItems{
+  border: 2px solid green;
+  max-width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 4px;
 }
 
 .itemMapContainer {
-  outline: 2px solid purple;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  outline: 1px solid black;
+  padding: 6px;
+  margin-bottom: 16px;
+  /* width: 30%; */
 }
 .itemMapContainer img {
-  width: 200px;
+  /* outline: 2px solid green; */
+  max-width: 18vw;
   height: auto;
 }
  
@@ -36,6 +54,8 @@
 .box2{
   outline: 2px solid green;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 50%;
 }
