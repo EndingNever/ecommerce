@@ -1,0 +1,41 @@
+/* TODO Style cart page so pictures of cars are side by side in a long row */
+.userCart {
+  outline: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.cartItemsContainer {
+  border: 2px solid red;
+  width: 75vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* height: 100%; */
+}
+
+.itemMapContainer {
+  outline: 2px solid purple;
+  max-width: 100%;
+}
+.itemMapContainer img {
+  width: 200px;
+  height: auto;
+}
+ 
+.box1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px solid red;
+  width: 75%;
+  height: 100%;
+}
+
+.box2{
+  outline: 2px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

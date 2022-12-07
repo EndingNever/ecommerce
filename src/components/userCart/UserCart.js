@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react'
+import styles from './userCart.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../store/auth';
 import Card from '../card/Card';
@@ -26,7 +27,7 @@ export default function UserCart() {
     dispatch(getTotal());
     dispatch(getItemCount());
   }, [])
-  
+
   // useEffect(() => {
   //   setCart({
   //     items: cartItems,
@@ -34,28 +35,47 @@ export default function UserCart() {
   //     total: cartTotal
   //   })
   // }, [cartItems, itemCount, cartTotal])
-  
+
   return (
-    <div>
-      User Cart
+    <div className={styles.userCart}>
       {cartItems.length === 0 && //* Empty Cart
         <div>
           <h1>Your cart is empty, add items to your cart!</h1>
         </div>
       }
       {cartItems.length !== 0 &&
-        <div>
-          {itemCount} items in cart
-          {cartItems.map((item) => (
-            <Fragment key={item.id}>
-              <Card vehicle={item} />
-              <p>Quantity:{item.cartQuantity}</p>
-            </Fragment>
-          ))}
-      <p>
-        Your total is ${cartTotal?.toLocaleString()}
-      </p>
-        </div>
+        <>
+          <div className={styles.box1}>
+            <p>test</p>
+            <div className={styles.box2}>
+              <p>test 2</p>
+              <p>test 2</p>
+              <p>test 2</p>
+            </div>
+          </div>
+        </>
+        // <div className={styles.cartItemsContainer}>
+        //   <div className={styles.itemCount}>
+        //     <p>{itemCount} items in cart</p>
+        //   </div>
+        //   <div className={styles.cartItems}>
+        //     {cartItems.map((item) => (
+        //       <div className={styles.itemMapContainer} key={item.id}>
+        //         <img src={item.image} />
+        //         <p>{item.make} {item.model}</p>
+        //         {/* <p></p> */}
+        //         <p>$ {item.price.toLocaleString()}</p>
+        //         <p>Quantity:{item.cartQuantity}</p>
+        //         {/* <Card vehicle={item} /> */}
+        //       </div>
+        //     ))}
+        //   </div>
+        //   <div>
+        //     <p>
+        //       Your total is ${cartTotal?.toLocaleString()}
+        //     </p>
+        //   </div>
+        // </div>
       }
     </div>
   )
