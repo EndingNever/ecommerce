@@ -7,8 +7,6 @@ import StickyNav from './components/stickyNav/StickyNav';
 import MainDisplay from './pages/mainDisplay/MainDisplay';
 import UserCart from './components/userCart/UserCart';
 import LoginAuth from './components/loginAuth/LoginAuth';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { authActions } from './store/auth';
 
 function App() {
   // const navigate = useNavigate();
