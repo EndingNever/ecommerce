@@ -12,6 +12,7 @@ const initialAuthState = {
     receipts: {},
   },
   isAuthenticated: initialToken !== null, // isAuthenticatd = true if localStorage shows a token
+  receiptNum: 1,
 }
 
 const authSlice = createSlice({
@@ -72,12 +73,16 @@ const authSlice = createSlice({
         localStorage.setItem('itemCount', state.user.itemCount)
       }
     },
+    iterateReceipt(state) {
+      state.receiptNum++;
+    },
     createReceipt(state, action) {
-      let receiptNum = 1;
+      // let receiptNum = 1;
+      let receiptNum = state.receiptNum;
       const userCartAtReceipt = JSON.parse(localStorage.getItem('cartItems'));
-      state.user.receipts = {...state.user.receipts, [receiptNum]: userCartAtReceipt}
-      receiptNum++;
-      console.log(receiptNum)
+      state.user.receipts = {...state.user.receipts, [state.receiptNum]: userCartAtReceipt}
+      state.receiptNum++;
+      console.log(state.user.receipts)
     }
   }
 });
