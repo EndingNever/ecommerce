@@ -2,6 +2,7 @@ import React, { useEffect,  } from 'react'
 import styles from './userCart.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../store/auth';
+import { Link } from 'react-router-dom';
 // import Card from '../card/Card';
 
 
@@ -13,15 +14,18 @@ import { authActions } from '../../store/auth';
 
 export default function UserCart() {
   const dispatch = useDispatch();
-  // const [cart, setCart] = useState({});
   const getCart = authActions.getCart;
   const getTotal = authActions.getTotal;
   const getItemCount = authActions.getItemCount;
+  const createUserReceipt = authActions.createReceipt;
   const cartItems = useSelector((state) => state.auth.user.cartItems); // Array of items in the User Object Cart
   const itemCount = useSelector((state) => state.auth.user.itemCount); // # of Items in the User Object cart
   const cartTotal = useSelector((state) => state.auth.user.total); // $$$ Total 
-  // const cartFromLocalStorage = JSON.parse(localStorage.getItem('cartItems'));
 
+  const handleReceipt = () => {
+    dispatch(createUserReceipt());
+  }
+  
   useEffect(() => {
     dispatch(getCart());
     dispatch(getTotal());
@@ -54,7 +58,7 @@ export default function UserCart() {
         //     </div>
         //   </div>
         // </>
-        <div className={styles.cartItemsContainer}>  {/**Box 1 */}
+        <div className={styles.cartItemsContainer}>
           <div className={styles.itemCount}>
             <p>{itemCount} items in cart</p>
           </div>
@@ -63,8 +67,7 @@ export default function UserCart() {
               <div className={styles.itemMapContainer} key={item.id}>
                 <img src={item.image} />
                 <p>{item.make} {item.model}</p>
-                {/* <p></p> */}
-                <p>$ {item.price.toLocaleString()}</p>
+                <p>${item.price.toLocaleString()}</p>
                 <p>Quantity:{item.cartQuantity}</p>
                 {/* <Card vehicle={item} /> */}
               </div>
@@ -74,6 +77,16 @@ export default function UserCart() {
             <p>
               Your total is ${cartTotal?.toLocaleString()}
             </p>
+            {/* <button ><Link to='/checkout'>Checkout</Link></button>  */}
+            {/*TODO - Make a checkout page that displays all of the items purchased, as well as a receipt number */}
+            {/*TODO The items purchased page will conntain all of the items, the total price, and a receipt number */}
+            {/*The receipt will have a receipt number, will contain all of the items purchased, and allows for the user to return an item by selecting it*/}
+            {/* The receipt can be attached to the user object, will contain the same cartItems, and will have a receipt number */}
+            {/* The receipt will be an object on the user, we need to dispatch on check out a function that will add the receipt to the user object */}
+            {/* The receipt number */}
+            {/*  */}
+            {/*  */}
+            <button onClick={handleReceipt}>Checkout</button>
           </div>
         </div>
       }

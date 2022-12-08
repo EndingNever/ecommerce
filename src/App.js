@@ -7,6 +7,7 @@ import StickyNav from './components/stickyNav/StickyNav';
 import MainDisplay from './pages/mainDisplay/MainDisplay';
 import UserCart from './components/userCart/UserCart';
 import LoginAuth from './components/loginAuth/LoginAuth';
+import Checkout from './components/checkout/Checkout';
 
 function App() {
   // const navigate = useNavigate();
@@ -31,6 +32,7 @@ function App() {
           <Route path='/motorcycles' element={<Motorcycles />} />
           <Route path='/cart' element={<UserCart />} />
           <Route path='/login' element={<LoginAuth />} />
+          <Route path='/checkout' element={<Checkout />} />
         </Routes>
       </div>
     </div>

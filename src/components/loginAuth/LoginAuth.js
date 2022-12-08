@@ -33,7 +33,7 @@ export default function LoginAuth() {
       const token = user._tokenResponse.localId
       dispatch(setStateUserToken(token));
       dispatch(login());
-      navigate('/',{ replace: true })
+      navigate('/', { replace: true })
     } catch (error) {
       console.log(error.message);
     }

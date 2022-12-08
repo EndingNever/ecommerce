@@ -9,13 +9,14 @@ const initialAuthState = {
     cartItems: [],
     total: 0,
     itemCount: 0,
+    receipts: {},
   },
   isAuthenticated: initialToken !== null, // isAuthenticatd = true if localStorage shows a token
 }
 
 const authSlice = createSlice({
   name: 'authentication', // named Authentication, but contains everything about the user object as well as Auth
-  initialState: initialAuthState, 
+  initialState: initialAuthState,
   reducers: {
     //*Authorization
     setUserToken(state, action) {
@@ -42,13 +43,13 @@ const authSlice = createSlice({
       state.user.itemCount = 0;
       state.user.total = 0;
     },
-    //*Authorization
+    //*! Authorization
 
     //* Cart
     getTotal(state) {
       state.user.total = JSON.parse(localStorage.getItem('cartTotal')); //localStorage only stores Strings, parseInt() converts to Int
     },
-    getItemCount(state){
+    getItemCount(state) {
       state.user.itemCount = JSON.parse(localStorage.getItem('itemCount'));
     },
     getCart(state) {
@@ -71,6 +72,13 @@ const authSlice = createSlice({
         localStorage.setItem('itemCount', state.user.itemCount)
       }
     },
+    createReceipt(state, action) {
+      let receiptNum = 1;
+      const userCartAtReceipt = JSON.parse(localStorage.getItem('cartItems'));
+      state.user.receipts = {...state.user.receipts, [receiptNum]: userCartAtReceipt}
+      receiptNum++;
+      console.log(receiptNum)
+    }
   }
 });
 
