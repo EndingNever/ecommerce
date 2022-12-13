@@ -9,7 +9,8 @@ const initialAuthState = {
     cartItems: [],
     total: 0,
     itemCount: 0,
-    receipts: {},
+    receipts: [],
+    favorites: [],
   },
   isAuthenticated: initialToken !== null, // isAuthenticatd = true if localStorage shows a token
   receiptNum: 1,
@@ -76,13 +77,10 @@ const authSlice = createSlice({
     iterateReceipt(state) {
       state.receiptNum++;
     },
-    createReceipt(state, action) {
-      // let receiptNum = 1;
-      let receiptNum = state.receiptNum;
+    createReceipt(state) {
       const userCartAtReceipt = JSON.parse(localStorage.getItem('cartItems'));
-      state.user.receipts = {...state.user.receipts, [state.receiptNum]: userCartAtReceipt}
+      state.user.receipts = {...state.user.receipts, ['rcpt' + state.receiptNum]: userCartAtReceipt}
       state.receiptNum++;
-      console.log(state.user.receipts)
     }
   }
 });

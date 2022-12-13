@@ -33,6 +33,7 @@
   flex-direction: column;
   justify-content: center;
   outline: 1px solid black;
+  max-height: 40vh;
   padding: 6px;
   margin-left: 4px;
   margin-right: 4px;

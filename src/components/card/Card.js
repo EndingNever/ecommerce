@@ -3,6 +3,8 @@ import styles from './card.module.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { authActions } from '../../store/auth';
+import heart from '../../images/icon/heart.png'
+import heartFill from '../../images/icon/heartFilled.png'
 
 export default function Card(props) {
   const dispatch = useDispatch();
@@ -24,7 +26,14 @@ export default function Card(props) {
         </div>
       </div>
       {!auth && <button><Link to='/login'>Add To Cart</Link> </button>}
-      {auth && <button onClick={() => handleAddToCart(vehicle)}>Add To Cart </button>}
+      {auth &&
+        <div className={styles.buttonsContainer}>
+          <button onClick={() => handleAddToCart(vehicle)}>Add To Cart </button>
+          <div className={styles.heartContainer}>
+            <img src={heart} />
+          </div>
+        </div>
+      }
 
     </div>
   )

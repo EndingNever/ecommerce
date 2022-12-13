@@ -32,8 +32,29 @@
   text-decoration: none;
 }
 
-.carImage {
+.buttonsContainer{
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  outline: 2px solid green;
+  max-height: 3vh;
+  max-width: 100%;
+}
 
+.heartContainer{
+  cursor: pointer;
+  max-height: 100%;
+  max-width: 1.7rem;
+  display: flex;
+  justify-content: flex-end;
+  /* outline: 2px solid red; */
+}
+
+.heartContainer img {
+  max-height: 100%;
+}
+
+.carImage {
   /* object-fit: fill; */
   /* border: 2px solid red; */
   /* max-height: 100%;
