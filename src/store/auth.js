@@ -79,8 +79,11 @@ const authSlice = createSlice({
     },
     createReceipt(state) {
       const userCartAtReceipt = JSON.parse(localStorage.getItem('cartItems'));
-      state.user.receipts = {...state.user.receipts, ['rcpt' + state.receiptNum]: userCartAtReceipt}
+      state.user.receipts = {...state.user.receipts, [state.receiptNum]: userCartAtReceipt}
       state.receiptNum++;
+      state.user.cartItems = [];
+      state.user.total = 0;
+      state.user.itemCount = 0;
       localStorage.removeItem('cartItems')
       localStorage.removeItem('itemCount')
       localStorage.removeItem('cartTotal')

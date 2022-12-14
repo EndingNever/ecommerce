@@ -1,11 +1,9 @@
 .headerNav{
   width: 75%;
-  margin-bottom: 20px;
 }
 
 .nav {
-  background-color: white;
-  height: 4rem;
+  height: 7vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -14,8 +12,6 @@
 
 ul {
   height: 100%;
-  /* background-color: purple; */
-  /* outline: 2px solid red; */
   width: 100%;
   display: flex;
   flex-direction: row;

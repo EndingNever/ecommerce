@@ -1,6 +1,6 @@
 .loginPage {
   background-color: cornflowerblue;
-  min-height: 100%;
+  min-height: 93vh;
   display: flex;
   justify-content: center;
   flex-direction: column;

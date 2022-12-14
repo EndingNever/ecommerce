@@ -19,16 +19,12 @@ export default function LoginAuth() {
   //*
 
   //! Redux Login
-  // const stateUser = useSelector((state) => state.auth.user)
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const setStateUserToken = authActions.setUserToken;
   const login = authActions.login;
   const logout = authActions.logout;
-  //! Redux Login
-
-  //!
-  const userReceipt = useSelector((state) => state.auth.user.receipts)
   //! Redux user receipts
+  const userReceipt = useSelector((state) => state.auth.user.receipts)
 
   const firebaseRegister = async () => {
     try {
@@ -47,7 +43,6 @@ export default function LoginAuth() {
       const user = await signInWithEmailAndPassword(auth, loginEmail, loginPassword);
       const token = user._tokenResponse.localId
       dispatch(setStateUserToken(token));
-      // dispatch(login());
       navigate("/", { replace: true })
     } catch (error) {
       console.log(error.message);
@@ -98,18 +93,16 @@ export default function LoginAuth() {
         </>}
       {isAuth === true &&
         <div className={styles.loggedIn}>
-          <h4>User Logged In: {user?.email}</h4>
+          <h4>User Email: {user?.email}</h4>
           <button onClick={firebaseLogout}>Sign Out</button>
-          {/* {isAuth === true && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>} */}
           {userReceipt !== null &&
             Object.keys(userReceipt).map((key) => (
               <div className={styles.receiptContainer}>
-                <h2>{key}</h2>
+                <h2>Receipt {key}:</h2>
                 {userReceipt[key].map((item) => (
                   <div className={styles.receiptInfo}>
                     <img alt={`${item.make} ${item.model}`}src={item.image} />
                     <p>{item.make} {item.model} ${item.price.toLocaleString()}</p>
-                    <p></p>
                   </div>
                 ))}
               </div>

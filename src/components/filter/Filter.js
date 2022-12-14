@@ -1,10 +1,9 @@
-import React from 'react'
-import styles from './mainDisplay.module.css'
-import { vehicles } from '../../data/data'
-import Card from '../../components/card/Card'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import Card from '../card/Card';
+import styles from './Filter.module.css'
 
-export default function MainDisplay() {
+export default function Filter(props) {
+  const vehicles = props.vehicles
   const [filterColor, setFilterColor] = useState('')
   let vehicleColors = [...new Set(vehicles.map((item) => (item.color)))];
   const vehicleFilter = vehicles.filter((vehicle) => filterColor === '' ? vehicle.color !== filterColor : vehicle.color === filterColor)
@@ -26,7 +25,7 @@ export default function MainDisplay() {
           )}
         </select>
       </div>
-      <div className={styles.main}>
+      <div className={styles.filterMain}>
         {vehicleFilter.map((vehicle) => (
           <Card key={vehicle.id} vehicle={vehicle} />
         ))}

@@ -1,4 +1,3 @@
-// import { useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
 import Cars from './components/cars/Cars';
@@ -10,15 +9,6 @@ import LoginAuth from './components/loginAuth/LoginAuth';
 import Checkout from './components/checkout/Checkout';
 
 function App() {
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // const isAuth = useSelector((state) => state.auth.isAuthenticated)
-  // const userToken = useSelector((state) => state.auth.user.token)
-  // const login = authActions.login
-
-  // useEffect(() => {
-  //    dispatch(login());
-  // }, [])
   
   return (
     <div className='app'>

@@ -15,7 +15,6 @@ const StickyNav = () => {
           <Link to='/cars'>Cars</Link>
           <Link to='/motorcycles'>Motorcycles</Link>
           <Link to='/cart'>Cart</Link>
-          {/* {auth == true ? <Link to='/login'>Account</Link> : <Link to='/login'>Login</Link>} */}
           <Link to='/login'> {auth == true ? 'Account' : 'Login'}</Link>
         </ul>
       </nav>
