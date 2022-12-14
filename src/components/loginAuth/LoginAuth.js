@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 export default function LoginAuth() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [receipt, setReceipt] = useState();
 
   //* Email,password, user for logging in with Firebase
   const [registerEmail, setRegisterEmail] = useState("");
@@ -66,26 +65,6 @@ export default function LoginAuth() {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser)
     })
-
-    // if (userReceipt !== null) {
-    //   setReceipt(userReceipt)
-    // }
-    // TODO Iterate through receipt
-    for (const key in userReceipt) {
-      if (userReceipt.hasOwnProperty(key)) {
-        for (let i = 0; i < userReceipt[key].length; i++) {
-          userReceipt[key].map((item) => (
-            // console.log('id: ' + userReceipt[key][i].id, 'quantity: ' + userReceipt[key][i].cartQuantity, 'price: ' + userReceipt[key][i].price)
-            console.log('id: ' + item.id, 'quantity :' + item.cartQuantity)
-          ))
-        }
-        // for (let i = 0; i < key.length; i++) {
-        //   userReceipt[key].map((item) => (
-        //     console.log(item)
-        //   ))
-        // }
-      }
-    }
   }, [user]);
 
   return (
@@ -119,25 +98,25 @@ export default function LoginAuth() {
           </div>
         </>}
       {isAuth === true &&
-        <>
+        <div className={styles.loggedIn}>
           <h4>User Logged In: {user?.email}</h4>
           <button onClick={firebaseLogout}>Sign Out</button>
           {isAuth === true && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
-          {'Token: ' + stateToken}
-          {
+          {userReceipt !== null &&
             Object.keys(userReceipt).map((key) => (
-              <div>
-                {key}
+              <div className={styles.receiptContainer}>
+                <h2>{key}</h2>
                 {userReceipt[key].map((item) => (
-                  <div>
-                    {item.price}
+                  <div className={styles.receiptInfo}>
+                    <img src={item.image} />
+                    <p>{item.make} {item.model} ${item.price.toLocaleString()}</p>
+                    <p></p>
                   </div>
                 ))}
               </div>
             ))
           }
-
-        </>
+        </div>
       }
     </div>
 
