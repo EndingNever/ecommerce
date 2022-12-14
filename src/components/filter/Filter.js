@@ -14,8 +14,8 @@ export default function Filter(props) {
 
   return (
     <>
-      <div>
-        <select name='color' id='color' onChange={handleChange}>
+      <div className={styles.filterHolder}>
+        Sort By Color: <select name='color' id='color' onChange={handleChange}>
           <option value=''>All</option>
           {vehicleColors.map((item) => (
             <option value={item} >

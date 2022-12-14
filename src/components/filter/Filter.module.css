@@ -1,3 +1,7 @@
+.filterHolder{
+  margin-top: 8px;
+}
+
 .filterMain {
   display: flex;
   align-items: center;
