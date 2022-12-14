@@ -20,7 +20,6 @@ export default function LoginAuth() {
 
   //! Redux Login
   // const stateUser = useSelector((state) => state.auth.user)
-  const stateToken = useSelector((state) => state.auth.user.token)
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
   const setStateUserToken = authActions.setUserToken;
   const login = authActions.login;
@@ -101,14 +100,14 @@ export default function LoginAuth() {
         <div className={styles.loggedIn}>
           <h4>User Logged In: {user?.email}</h4>
           <button onClick={firebaseLogout}>Sign Out</button>
-          {isAuth === true && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>}
+          {/* {isAuth === true && <div>AUTHORIZATION GRANTED. CONGRATULATIONS</div>} */}
           {userReceipt !== null &&
             Object.keys(userReceipt).map((key) => (
               <div className={styles.receiptContainer}>
                 <h2>{key}</h2>
                 {userReceipt[key].map((item) => (
                   <div className={styles.receiptInfo}>
-                    <img src={item.image} />
+                    <img alt={`${item.make} ${item.model}`}src={item.image} />
                     <p>{item.make} {item.model} ${item.price.toLocaleString()}</p>
                     <p></p>
                   </div>
