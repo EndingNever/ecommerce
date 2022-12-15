@@ -36,7 +36,7 @@
   margin-top: 6px;
   display: flex;
   justify-content: space-between;
-  outline: 2px solid green;
+  /* outline: 2px solid green; */
   max-height: 3vh;
   max-width: 100%;
 }
