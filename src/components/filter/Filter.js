@@ -18,7 +18,7 @@ export default function Filter(props) {
         Sort By Color: <select name='color' id='color' onChange={handleChange}>
           <option value=''>All</option>
           {vehicleColors.map((item) => (
-            <option value={item} >
+            <option key={item.id} value={item} >
               {item.charAt(0).toUpperCase().concat(item.slice(1))} {/* Capitalizes first letter, concats the rest of the word  */}
             </option>
           )
@@ -27,7 +27,9 @@ export default function Filter(props) {
       </div>
       <div className={styles.filterMain}>
         {vehicleFilter.map((vehicle) => (
-          <Card key={vehicle.id} vehicle={vehicle} />
+          <div key={vehicle.id}>
+            <Card key={vehicle.id} vehicle={vehicle} />
+          </div>
         ))}
       </div>
     </>

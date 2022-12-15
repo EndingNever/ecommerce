@@ -11,14 +11,18 @@ export default function Card(props) {
   const auth = useSelector((state) => state.auth.isAuthenticated)
   const vehicle = props.vehicle;
   const addToUserCart = authActions.addItem;
+  const addToFavorites = authActions.addToFavorites
 
   const handleAddToCart = (product) => {
     dispatch(addToUserCart(product))
   }
+  const handleAddFavorite = (product) => {
+    dispatch(addToFavorites(product));
+  }
 
   return (
-    <div key={vehicle.id} className={styles.cardContainer}>
-      <div className={styles.vehicleDisplay}>
+    <div className={styles.cardContainer}>
+      <div key={vehicle.id}  className={styles.vehicleDisplay}>
         <h1>{vehicle.make} {vehicle.model}</h1>
         <p>Price: {"$"}{vehicle.price.toLocaleString()}</p>
         <div className={styles.imgContainer}>
@@ -29,7 +33,7 @@ export default function Card(props) {
       {auth &&
         <div className={styles.buttonsContainer}>
           <button onClick={() => handleAddToCart(vehicle)}>Add To Cart </button>
-          <div className={styles.heartContainer}>
+          <div onClick={() => handleAddFavorite(vehicle)} className={styles.heartContainer}>
             <img src={heart} />
           </div>
         </div>

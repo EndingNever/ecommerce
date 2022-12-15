@@ -65,7 +65,7 @@ export default function LoginAuth() {
     <div className={styles.loginPage}>
       {isAuth === false &&
         <>
-          <div>
+          {/* <div>
             <h3>Register User</h3>
             <input
               type="text"
@@ -79,16 +79,21 @@ export default function LoginAuth() {
               onChange={(event) => { setRegisterPassword(event.target.value) }}
             />
             <button onClick={firebaseRegister}>Create User</button>
-          </div>
-          <div>
-            <h3> Login </h3>
-            <input placeholder='Email...'
-              onChange={(event) => setLoginEmail(event.target.value)}
-            />
-            <input placeholder='Password...'
-              onChange={(event) => setLoginPassword(event.target.value)}
-            />
-            <button onClick={firebaseLogin}>Login</button>
+          </div> */}
+          <div className={styles.loginContainer}>
+            <div className={styles.loginHeader}>
+              <h3> Login </h3>
+            </div>
+            <div className={styles.loginInputs}>
+              <input placeholder='Email...'
+                onChange={(event) => setLoginEmail(event.target.value)}
+              />
+              <input placeholder='Password...'
+                type='password'
+                onChange={(event) => setLoginPassword(event.target.value)}
+              />
+              <button onClick={firebaseLogin}>Login</button>
+            </div>
           </div>
         </>}
       {isAuth === true &&
@@ -99,9 +104,10 @@ export default function LoginAuth() {
             Object.keys(userReceipt).map((key) => (
               <div className={styles.receiptContainer}>
                 <h2>Receipt {key}:</h2>
+                {userReceipt[key].total}
                 {userReceipt[key].map((item) => (
                   <div className={styles.receiptInfo}>
-                    <img alt={`${item.make} ${item.model}`}src={item.image} />
+                    <img alt={`${item.make} ${item.model}`} src={item.image} />
                     <p>{item.make} {item.model} ${item.price.toLocaleString()}</p>
                   </div>
                 ))}

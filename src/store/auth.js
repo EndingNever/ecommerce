@@ -87,6 +87,17 @@ const authSlice = createSlice({
       localStorage.removeItem('cartItems')
       localStorage.removeItem('itemCount')
       localStorage.removeItem('cartTotal')
+    },
+    addToFavorites(state, action) {
+      if (state.isAuthenticated) {
+        const itemIndex = state.user.favorites.findIndex((item) => item.id === action.payload.id);
+        if (itemIndex) {
+          // Remove from favorites
+        }
+        else {
+          state.user.favorites.push(action.payload.id)
+        }
+      }
     }
   }
 });
